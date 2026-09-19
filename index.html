@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Chapter 02</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       OPENING
+  ========================== -->
+
+  <section id="opening" class="opening">
+
+    <div class="opening-card">
+
+      <p class="opening-kicker">
+        TRANSMISSION READY
+      </p>
+
+      <h1>CHAPTER 02</h1>
+
+      <p class="opening-date">
+        20 September • Bengaluru
+      </p>
+
+      <div class="opening-meta">
+        <span>signal: offline</span>
+        <span>frequency: --.-</span>
+        <span>status: waiting</span>
+      </div>
+
+      <button
+        id="connectBtn"
+        class="connect-btn"
+        type="button"
+      >
+        connect
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN SCENE
+  ========================== -->
+
+  <main id="scene" class="scene hidden">
+
+    <div class="glow glow-left"></div>
+    <div class="glow glow-right"></div>
+
+    <div class="grain"></div>
+
+
+    <!-- BLOSSOM BRANCHES -->
+
+    <div class="branch branch-left">
+      <span class="flower f1"></span>
+      <span class="flower f2"></span>
+      <span class="flower f3"></span>
+      <span class="flower f4"></span>
+      <span class="flower f5"></span>
+    </div>
+
+    <div class="branch branch-right">
+      <span class="flower f1"></span>
+      <span class="flower f2"></span>
+      <span class="flower f3"></span>
+      <span class="flower f4"></span>
+      <span class="flower f5"></span>
+    </div>
+
+    <div id="petals" class="petals"></div>
+
+
+    <!-- =========================
+         RADIO
+    ========================== -->
+
+    <section class="radio-area">
+
+      <p class="radio-label">
+        FM / CASSETTE RECEIVER
+      </p>
+
+
+      <div class="radio">
+
+        <!-- FM PANEL -->
+
+        <div class="fm-panel">
+
+          <div class="fm-row">
+
+            <span>FM</span>
+
+            <span id="signalText">
+              STANDBY
+            </span>
+
+          </div>
+
+
+          <div class="scale">
+
+            <span>88</span>
+            <span>92</span>
+            <span>96</span>
+            <span>100</span>
+            <span>104</span>
+            <span>108</span>
+
+          </div>
+
+
+          <div class="tuner-track">
+
+            <div
+              id="needle"
+              class="needle"
+            ></div>
+
+          </div>
+
+
+          <div class="fm-bottom">
+
+            <span>MHz</span>
+
+            <span id="frequencyDisplay">
+              --.-
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- RADIO BODY -->
+
+        <div class="radio-body">
+
+          <!-- LEFT SPEAKER -->
+
+          <div class="speaker">
+            <div class="speaker-mesh"></div>
+          </div>
+
+
+          <!-- CASSETTE -->
+
+          <div class="cassette">
+
+            <p class="cassette-title">
+              STEREO CASSETTE
+            </p>
+
+            <div class="cassette-window">
+
+              <div class="cassette-frame"></div>
+
+              <div class="reel reel-left">
+                <div class="reel-center"></div>
+              </div>
+
+              <div class="tape-line"></div>
+
+              <div class="reel reel-right">
+                <div class="reel-center"></div>
+              </div>
+
+            </div>
+
+
+            <p
+              id="deckStatus"
+              class="deck-status"
+            >
+              OFF AIR
+            </p>
+
+          </div>
+
+
+          <!-- RIGHT SPEAKER -->
+
+          <div class="speaker">
+            <div class="speaker-mesh"></div>
+          </div>
+
+        </div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="controls">
+
+          <button
+            id="powerBtn"
+            class="control-btn power-btn"
+            type="button"
+            aria-label="Power"
+          >
+            ⏻
+          </button>
+
+          <button
+            id="rewindBtn"
+            class="control-btn"
+            type="button"
+            aria-label="Rewind"
+          >
+            ⏮
+          </button>
+
+          <button
+            id="playBtn"
+            class="control-btn"
+            type="button"
+            aria-label="Play"
+          >
+            ▶
+          </button>
+
+          <button
+            id="pauseBtn"
+            class="control-btn"
+            type="button"
+            aria-label="Pause"
+          >
+            ⏸
+          </button>
+
+          <button
+            id="stopBtn"
+            class="control-btn"
+            type="button"
+            aria-label="Stop"
+          >
+            ⏹
+          </button>
+
+          <button
+            id="forwardBtn"
+            class="control-btn"
+            type="button"
+            aria-label="Forward"
+          >
+            ⏭
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           CAPTIONS
+      ========================== -->
+
+      <section
+        id="captions"
+        class="captions"
+      >
+
+        <p
+          id="captionPrev"
+          class="caption caption-prev"
+        ></p>
+
+        <p
+          id="captionCurrent"
+          class="caption caption-current"
+        >
+          press power to begin
+        </p>
+
+        <p
+          id="captionNext"
+          class="caption caption-next"
+        ></p>
+
+      </section>
+
+    </section>
+
+
+    <!-- =========================
+         AUDIO
+
+         It tries radio-message.mp3 first.
+         If that file isn't there, it tries
+         chapter02-radio.mp3.
+    ========================== -->
+
+    <audio
+      id="radioAudio"
+      preload="auto"
+    >
+      <source
+        src="radio-message.mp3"
+        type="audio/mpeg"
+      />
+
+      <source
+        src="chapter02-radio.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
